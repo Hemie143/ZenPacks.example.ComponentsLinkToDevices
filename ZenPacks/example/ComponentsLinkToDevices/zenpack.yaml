@@ -1,0 +1,24 @@
+name: ZenPacks.example.ComponentsLinkToDevices
+
+class_relationships:
+  - MyDevice 1:MC MyComponent
+
+classes:
+  MyDevice:
+    base: [zenpacklib.Device]
+  
+  MyComponent:
+    base: [zenpacklib.Component]
+    label: My Component
+
+    properties:
+      macaddress:
+        index_type: field
+        index_scope: global
+        order: 4.01
+
+      linked_device:
+        api_only: true
+        api_backendtype: method
+        renderer: Zenoss.render.default_uid_renderer
+        order: 4.02
